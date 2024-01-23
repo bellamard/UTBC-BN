@@ -2,10 +2,11 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <div className='Border-b-2 bored-b-gray-700 p-4'>
+        <div className='p-4 border-2 border-gray-500'>
             <h1>
-                Bibliotheque virtuel Bel camps
+                UTBC BIBLIOTHEQUE NUMERIQUE
             </h1>
+            
         </div>
     );
 };
