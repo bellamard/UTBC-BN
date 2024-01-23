@@ -13,7 +13,7 @@ const Error = ({ error, reset }: { error: Error; reset:()=>void}) => {
                 something went wring!
             </h2>
             <button onClick={()=>reset()}>
-                try again
+                try again ded
             </button>
 
         </div>
