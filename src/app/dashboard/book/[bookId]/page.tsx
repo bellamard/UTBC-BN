@@ -9,7 +9,7 @@ function Home({
 }) {
     return (
         <div>
-            Book
+            Livre
             <p>{params.bookId}</p>
         </div>
     );
