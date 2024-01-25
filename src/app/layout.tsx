@@ -1,4 +1,4 @@
-import Header from '@/componnents/header';
+import Header from '@/components/header';
 import './globals.css'
 
 
@@ -18,9 +18,9 @@ export default function RootLayout({
           utbc Bibiliotheque
         </title>
       </head>
-      <body className='bg-gray-900 text-gray-50 '>
+      <body className='bg-site bg-no-repeat bg-cover overflow-hidden '>
         <Header />
-        <div className='p-4'>
+        <div>
           {children}
         </div>
       </body>
