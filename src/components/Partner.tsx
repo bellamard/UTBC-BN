@@ -2,7 +2,7 @@ import React from 'react';
 
 const Partner = () => {
     return (
-        <div>
+        <div className='section'>
             <h2>
                 partenaire!!!
             </h2>

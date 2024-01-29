@@ -1,36 +1,29 @@
 import Image from 'next/image';
-import logos from '../images/logos.png';
+import logos from '@/assets/logos.png';
 import React from 'react';
+import Link from 'next/link';
 
 const Header = () => {
     return (
-        <div className="bg-yellow-600 p-4 border-2 border-b-red-600">
-            <div className='flex flex-row'>
-                <Image
-                    src={logos}
-                    alt='logos de Utbc Bibliotheque Numérique'
-                    width='90'
-                    height='90'
-                />
-                <div className='flex flex-col'>
-                    <h1 className='text-2xl'>
-                        UTBC
-                    </h1>
-                    <span className='capitalize'>
-                        BIBLIOTHEQUE NUMERIQUE
-                    </span>
-                </div>
+        <div className="bg-pink-600 flex justify-between px-4 items-center">
 
+            <div className="flex flex-row items-center ">
+                <Image src={logos} alt='logo site' width='60' height='60' />
+                
+                <h1 className='text-lg font-bold items-center'>
+                    UTBC
+                    <span className='font-light text-xs'>
+                        bibliotheque Numérique
+                    </span>
+                </h1>
 
             </div>
             <div>
-                <ul>
-                    <li>
-                        
-                    </li>
+                <ul className='flex flex-row justify-between' >
+                    <li className='mx-2 p-1'><Link href=''>se connecter</Link></li>
+                    <li className='mx-2 p-1'><Link href=''>s&apos;inscrire</Link></li>
                 </ul>
             </div>
-
 
         </div>
     );

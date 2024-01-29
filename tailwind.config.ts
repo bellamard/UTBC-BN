@@ -7,11 +7,31 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontFamily: {
+      primary: '',
+      secondary: '',
+      tertiary: ''
+    },
+    container: {
+      padding: {
+        DEFAULT: '15px',
+      }
+    },
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '960px',
+      xl: '1200px'
+    },
     extend: {
+      colors: {
+        primary: '#fff000',
+        accent: '#fff777'
+      },
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        // site: "url('../assets/bgSecond.jpg')",
+        // about: "url('../assets/bgPrincipal.jpg')",        
+        // partener: "url('@/assets/bgSecond.jpg')",
       },
     },
   },

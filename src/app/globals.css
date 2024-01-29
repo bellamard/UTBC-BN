@@ -3,6 +3,8 @@
 @tailwind utilities;
 
 :root {
+  margin: 0;
+  padding: 0;
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -24,4 +26,9 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
+}
+@layer base {
+  .section {
+    @apply py-8 lg:py-24 lg:h-screen flex items-center;
+  }
 }
