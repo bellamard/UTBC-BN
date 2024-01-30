@@ -6,7 +6,7 @@ import Image from 'next/image';
 const Banner = () => {
     return (
         <div className='section flex flex-row justify-between items-center'>
-            <div className='flex flex-col m-8 items-center w-full h-full '>
+            <div className='flex flex-col m-8 w-full h-full '>
                 <div className="flex flex-col py-2">
                     <h2 className='text-[64px] font-bold text-blue-600'>
                         Bienvenu(e)
@@ -19,8 +19,8 @@ const Banner = () => {
                         de l&apos;Universitaire Technologique BelCampus
                     </p>
                 </div>
-                <div className='my-2 w-full flex'>
-                    <Link href='' className='p-2 borded borded-2 rounded-full bg-red-600 text-[#ffff] text-[24px]'>
+                <div className='my-2 w-[200px] flex justify-between items-center'>
+                    <Link href='' className='p-2 borded borded-2 rounded-full bg-red-600 text-[#ffff] text-[18px] justify-center items-center w-full hover:bg-red-300'>
                         s&apos;inscrire
                     </Link>
                 </div>
