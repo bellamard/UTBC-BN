@@ -12,7 +12,7 @@ export default function Home() {
       <Partner/>
       <Contact/>
       <Nav/>
-      <div className='h-[2000px]'></div>
+      {/* <div className='h-[2000px]'></div> */}
     </>
   )
 }

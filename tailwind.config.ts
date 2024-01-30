@@ -29,9 +29,9 @@ const config: Config = {
         accent: '#fff777'
       },
       backgroundImage: {
-        // site: "url('../assets/bgSecond.jpg')",
-        // about: "url('../assets/bgPrincipal.jpg')",        
-        // partener: "url('@/assets/bgSecond.jpg')",
+        site: "url('../assets/bg4.jpg')",
+        about: "url('../assets/bgPrincipal.jpg')",        
+        partener: "url('@/assets/bgSecond.jpg')",
       },
     },
   },
