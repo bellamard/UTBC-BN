@@ -7,9 +7,7 @@ const About = () => {
     return (
         <div className='section justify-center' id='About'>
             <div className="ml-4 mr-4 p-8 flex flex-col justify-center align-center">
-                <div className='flex flex-col justify-center items-center'>
-
-                </div>
+                
                 <div className='flex flex-row justify-center'>
                     <div className='flex flex-row justify-center items- items-start'>
                         <Image src={illustration} alt="image de presentation du bibliotheque virtuel" width='360' className='rounded-xl border border-[4px] border-sky-500' />

@@ -5,17 +5,17 @@ import Link from 'next/link';
 
 const Header = () => {
     return (
-        <div className="border-bottom border-blue-400 bg-white/75 flex justify-between px-4 items-center">
+        <div className="fixed top-0 left-0 right-0 border-bottom border-blue-400 bg-white/75 flex justify-between px-4 items-center">
 
             <div className="flex flex-row items-center ">
                 <Image src={logos} alt='logo site' width='60' height='60' />
                 <div className='flex flex-col'>
                     <Link href=''>
 
-                        <h1 className='text-4xl font-bold items-center text-yellow-400'>
+                        <h1 className='text-4xl font-bold items-center text-blue-400'>
                             UTBC
                         </h1>
-                        <p className='font-light text-xs text-blue-400'>
+                        <p className='font-light text-xs text-black-400'>
                             bibliotheque Numérique
                         </p>
                     </Link>
@@ -23,7 +23,7 @@ const Header = () => {
             </div>
             <div>
                 <ul className='flex flex-row justify-between' >
-                    <li className='mx-2 p-1 text-blue-400'><Link href=''>se connecter</Link></li>
+                    <li className='mx-2 p-1 text-blue-400'><Link href='/Signin'>se connecter</Link></li>
                     <li className='mx-2 p-1 text-blue-400'><Link href=''>s&apos;inscrire</Link></li>
                 </ul>
             </div>

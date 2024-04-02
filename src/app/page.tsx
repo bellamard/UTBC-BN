@@ -1,3 +1,4 @@
+'use client';
 import Banner from '@/components/Banner';
 import About from '@/components/About';
 import Partner from '@/components/Partner';
@@ -8,10 +9,9 @@ export default function Home() {
 
   return (
 
-    <>
-      <About />
+    <>      
       <Banner />
-
+      <About />
       <Partner />
       <Contact />
       <Nav />
