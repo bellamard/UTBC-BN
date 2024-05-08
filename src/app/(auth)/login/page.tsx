@@ -4,8 +4,10 @@ import SingIn from '@/components/SingIn';
 
 const SignIn = () => {
     return (
+        <div >
+            <SingIn />
+        </div>
 
-        <SingIn />
 
 
     );

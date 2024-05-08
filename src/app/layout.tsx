@@ -1,5 +1,5 @@
-import Header from '@/components/header';
-import './globals.css';
+
+import './styles/globals.css';
 
 
 
@@ -18,8 +18,7 @@ export default function RootLayout({
           utbc Bibiliotheque
         </title>
       </head>
-      <body className='bg-site bg-no-repeat bg-cover overflow-hidden '>
-        <Header />
+      <body className='overflow-hidden'>
         <div>
           {children}
         </div>

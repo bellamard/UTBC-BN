@@ -29,10 +29,12 @@ const config: Config = {
         accent: '#fff777'
       },
       backgroundImage: {
-        about: "url('../assets/bg4.jpg')",
-        partener: "url('../assets/bgPrincipal.jpg')",        
-        site: "url('../assets/bgSecond.jpg')",
+        about: "url('../../assets/bg4.jpg')",
+        partener: "url('../../assets/bgPrincipal.jpg')",        
+        site: "url('../../assets/bgSecond.jpg')",
+        dash:"#146ca4",        
       },
+      
     },
   },
   plugins: [],

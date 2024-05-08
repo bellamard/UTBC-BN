@@ -19,7 +19,7 @@ const Nav = () => {
                         Home
                     </Link>
                     <Link
-                        to='/Singin'
+                        to='/login'
                         activClass='active'
                         smooth={true}
                         spy={true}
