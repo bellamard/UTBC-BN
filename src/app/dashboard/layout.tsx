@@ -10,9 +10,9 @@ export default function AuthLayout({
   return (
 
     <>
-      <div className='flex w-full'>
+      <div className='flex w-screen w-full flex-wrap'>
         <SideNav />
-        <main className='bg-dash bg-no-repeat bg-cover'>
+        <main className='bg-dash bg-no-repeat bg-cover w-[84%] '>
           {children}
         </main>
       </div>

@@ -9,54 +9,58 @@ const SideNav = () => {
     const [domaines, setDomaines] = useState([]);
 
     return (
-        <div className="flex flex-col justify-between p-2 bg-sky-500 h-full w-48 text-white text-[18] font-light">
-            <div className='flex justify-center mb-4'>
-                <Link href=''>
-                    <Image src={logos} alt='logo site' width='90' height='90' />
-                </Link>
-            </div>
+        <div className="sticky top-0 flex flex-col justify-between p-2 bg-sky-500 h-screen w-[14%] text-white text-[18] font-light rounded-r">
             <div>
-                <ul className='list-none'>
-                    <li className='p-2 border-b border-white-400/25 '>
-                        <Link href="#" className='active:text-blue-400 hover:text-blue-900'>
-                            <div className='flex v-middle'>
-                                <FaBookReader className='mr-4 text-3xl' />
-                                Mes lectures
-                            </div>
-                        </Link>
-                    </li>
-                    <li className='p-2 border-b border-white-400/25'>
-                        <Link href="#" className='active:text-blue-400 hover:text-blue-900'>
-                            <div className='flex'>
-                                <FaBook className='mr-4 text-3xl' />
-                                Nouveautes
-                            </div>
-                        </Link>
-                    </li>
-                    <li className='p-2 border-b border-white-400/25'>
-                        <Link href='#' className='active:text-blue-400 hover:text-blue-900'>
-                            <div className='flex'>
-                                <FaSchool className='mr-4 text-3xl' />
-                                DOMAINES
-                            </div>
-                        </Link>
+                <div className='flex justify-center mb-4'>
+                    <Link href=''>
+                        <Image src={logos} alt='logo site' width='90' height='90' />
+                    </Link>
+                </div>
+                <div>
+                    <ul className='list-none'>
+                        <li className='p-2 border-b border-white-400/25 '>
+                            <Link href="#" className='active:text-blue-400 hover:text-blue-900'>
+                                <div className='flex v-middle'>
+                                    <FaBookReader className='mr-4 text-3xl' />
+                                    Mes lectures
+                                </div>
+                            </Link>
+                        </li>
+                        <li className='p-2 border-b border-white-400/25'>
+                            <Link href="#" className='active:text-blue-400 hover:text-blue-900'>
+                                <div className='flex'>
+                                    <FaBook className='mr-4 text-3xl' />
+                                    Nouveautes
+                                </div>
+                            </Link>
+                        </li>
+                        <li className='p-2 border-b border-white-400/25'>
+                            <Link href='#' className='active:text-blue-400 hover:text-blue-900'>
+                                <div className='flex'>
+                                    <FaSchool className='mr-4 text-3xl' />
+                                    DOMAINES
+                                </div>
+                            </Link>
 
-                    </li>
-                    <li className='p-2 border-b border-white-400/25'>
+                        </li>
+                        <li className='p-2 border-b border-white-400/25'>
 
-                        <Link href="#" className='active:text-blue-400 hover:text-blue-900'>
-                            <div className=' flex'>
-                                < FaStar className='mr-4 text-3xl' />
-                                Favoris
-                            </div>
-                        </Link>
+                            <Link href="#" className='active:text-blue-400 hover:text-blue-900'>
+                                <div className=' flex'>
+                                    < FaStar className='mr-4 text-3xl' />
+                                    Favoris
+                                </div>
+                            </Link>
 
 
-                    </li>
-                </ul>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
-            <div  className='flex v-middle p-2 mt-8'>
-                <FaSignOutAlt className='mr-4 text-3xl'/>
+
+            <div className='flex v-middle p-2 mt-8'>
+                <FaSignOutAlt className='mr-4 text-3xl' />
                 Deconnecter
             </div>
 

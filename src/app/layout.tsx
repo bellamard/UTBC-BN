@@ -18,7 +18,7 @@ export default function RootLayout({
           utbc Bibiliotheque
         </title>
       </head>
-      <body className='overflow-hidden'>
+      <body className='overflow-auto overflow-x-hidden'>
         <div>
           {children}
         </div>
