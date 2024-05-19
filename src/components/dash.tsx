@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Image from 'next/image';
+import Link from 'next/link';
 import { FaBookOpenReader, FaBook, FaHospital, FaScaleBalanced, FaLaptopCode, FaLandmark, FaTv } from 'react-icons/fa6';
 dash.propTypes = {
 
@@ -52,21 +52,24 @@ function dash(props) {
             }
 
             return (
+
                 <div key={key} className={styleCss(bookDepartment.name)}>
-                    <div className='justify-between text-white'>
-                        <div className='flex flex-row justify-between items-center'>
-                            <MyIcon name={bookDepartment.name} />
-                            <h3>
-                                {bookDepartment.name}
+                    <Link href={`dashboard/${bookDepartment.name}`}>
+                        <div className='justify-between text-white'>
+                            <div className='flex flex-row justify-between items-center'>
+                                <MyIcon name={bookDepartment.name} />
+                                <h3>
+                                    {bookDepartment.name}
 
-                            </h3>
+                                </h3>
+                            </div>
+                            <h4 className='flex justify-end items-right text-6xl text-yellow-400'>
+                                {bookDepartment.counts}
+                            </h4>
                         </div>
-                        <h4 className='flex justify-end items-right text-6xl text-yellow-400'>
-                            {bookDepartment.counts}
-                        </h4>
-                    </div>
+                    </Link>
+                </div >
 
-                </div>
             );
         }
         )
@@ -76,7 +79,6 @@ function dash(props) {
     return (
         <div className='w-full justify-center  text-blue-800 p-2 border-b border-blue-600'>
             <div>
-
                 <div className='flex justify-between flex-wrap'>
                     {getCountDepartment()}
                 </div>
