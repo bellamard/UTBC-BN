@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import axios from 'axios';
+import logos from '@/assets/logos.png';
+import { FaUser, FaBookOpen, FaCalendar, FaFeather, FaUserEdit } from 'react-icons/fa';
 
 function Home({
   params,
@@ -52,11 +54,62 @@ function Home({
       </div>
     )
   }
-
+  const { title, author, domain, director, rapport, year, urlBook } = dataBook;
   return (
     <div>
-      <h2>Fetched Data</h2>
+      <div>
+        <FaBookOpen />
+        <h2>{title}</h2>
+      </div>
+      <div>
+        <div>
+          <Image src={urlBook ? `http://localhost/api/cover/${urlBook}` : logos} width="280px" height="350px" objectFit="cover" className='rounded' />
+        </div>
+        <div>
+          <div>
+            <FaUser />
+            <h3>
+              {author}
+            </h3>
+          </div>
+          <div>
+            <FaFeather />
+            {domain}
+          </div>
+          <div>
+            <FaUserEdit />
+            <div>
+              <div>
+
+                <h3>
+                  Directeur
+                </h3>
+                {
+                  director
+                }
+              </div>
+              <div>
+                <h3>
+                  Rapporteur
+                </h3>
+                {
+                  rapport
+                }
+              </div>
+            </div>
+          </div>
+          <div>
+            <FaCalendar />
+            {
+              year
+            }
+          </div>
+
+        </div>
+      </div>
+
       <pre>{JSON.stringify(dataBook, null, 2)}</pre>
+
     </div>
   );
 }
