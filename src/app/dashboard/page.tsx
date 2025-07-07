@@ -131,8 +131,8 @@ const Home = () => {
     return (
         <div className='flex flex-col justify-between m-2 p-2 bg-gray-200  w-full flex-col flex-wrap rounded rounded-l '>
             <HeaderDashboard userName='bebe' path='DashBoard' />
-            <CountMemory countBook={1060} />
-            {/* <Dash countBookDepartment={countBookDepartment} /> */}
+            <CountMemory countBook={1060} countBookDepartment={countBookDepartment} />
+            <Dash countBookDepartment={countBookDepartment} />
             {
                 memories.map((category, index) => (
                     <Pannel memories={category} key={index} />
