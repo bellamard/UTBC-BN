@@ -13,7 +13,7 @@ export default function Home() {
     <>
       
       <Header />
-      <div className='bg-site bg-no-repeat bg-cover'>
+      <div className='relative bg-site bg-no-repeat bg-cover min-h-screen'>
         <Banner />
         <About />
         <Partner />

@@ -1,48 +1,43 @@
-'use client';
-import Link from 'next/link';
-import React from 'react';
-import illustrat from '@/assets/illustrat03.jpeg'
-import Image from 'next/image';
+"use client";
+import Link from "next/link";
+import React from "react";
+import illustrat from "@/assets/illustrat03.jpeg";
+import Image from "next/image";
 import { AiFillEdit } from "react-icons/ai";
 
 const Banner = () => {
-    return (
-        <div className='section flex flex-row justify-between items-center place-content-center' id='home'>
-            <div className='flex flex-col m-4 w-1/2 h-full '>
-                <div className="flex flex-col py-2  p-4 rounded bg-gray-600/25">
-                    <h2 className='text-[64px] font-bold text-white'>
-                        Bienvenu(e)
-                    </h2>
-                    <h3 className='text-[42px] text-yellow-400 leading-none mb-2'>
-                        dans la Bibliotheque Numérique
-
-                    </h3>
-                    <p className='text-white'>
-                        de l&apos;Universitaire Technologique BelCampus
-                    </p>
-                    <div className='my-4 w-1/3'>
-                        <Link href='/login' className='p-1 border border-sky-500 rounded-full  text-white flex items-center bg-gradient-to-r from-purple-500 to-pink-500/25 hover:bg-white hover:text-white/50'>
-                            <div className="p-3 mr-4 rounded-full bg-sky-500">
-                                <AiFillEdit />
-                            </div>
-                            <h3 className='text-xl'>
-                                Commencez ici
-                            </h3>
-
-                        </Link>
-
-                    </div>
-
-                </div>
-
-
-
-            </div>
-            {/* <div className='m-8  flex justify-center bg-blue-800'>
-                <Image src={illustrat} alt='illustration de la bibliothèque Numérique'  className='w-50 rounded-full' />
-            </div> */}
+  return (
+    <div
+      className="section flex flex-col md:flex-row justify-between items-center min-h-[60vh] py-10 md:py-20 px-4 md:px-16"
+      id="home"
+    >
+      {/* Bloc texte à gauche */}
+      <div className="flex flex-col w-full md:w-1/2 h-full mx-auto md:mx-0 md:items-start">
+        <div className="flex flex-col gap-4 py-10 px-8 rounded-2xl shadow-2xl bg-gradient-to-br from-blue-700/90 to-purple-600/80 mb-6 md:mb-0">
+          <h2 className="text-4xl md:text-5xl font-bold text-white drop-shadow mb-2">
+            Bienvenu(e)
+          </h2>
+          <h3 className="text-2xl md:text-3xl text-yellow-400 leading-tight mb-2 font-semibold drop-shadow">
+            dans la Bibliothèque Numérique
+          </h3>
+          <p className="text-white text-base md:text-lg mb-4">
+            de l&apos;Université Technologique BelCampus
+          </p>
+          <div className="mt-2">
+            <Link
+              href="/login"
+              className="inline-flex items-center gap-3 px-7 py-3 rounded-full bg-gradient-to-r from-blue-600 to-blue-400 text-white font-semibold shadow-lg hover:from-blue-700 hover:to-blue-500 transition"
+            >
+              <span className="p-2 rounded-full bg-white/20">
+                <AiFillEdit className="text-2xl" />
+              </span>
+              <span className="text-lg">Commencez ici</span>
+            </Link>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Banner;

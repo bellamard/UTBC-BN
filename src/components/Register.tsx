@@ -88,30 +88,32 @@ const Register = () => {
     >
       <div className="absolute inset-0 bg-blue-900/60 backdrop-blur-sm -z-10"></div>
       <div className="w-full max-w-3xl bg-white/90 rounded-2xl shadow-2xl flex flex-col md:flex-row overflow-hidden animate-fade-in-up">
-        {/* Illustration */}
-        <div className="hidden md:flex flex-col justify-center items-center bg-gradient-to-br from-blue-700 to-blue-500 text-white p-10 w-1/2">
+        {/* Illustration - fond blanc pour mettre en valeur le logo */}
+        <div className="hidden md:flex flex-col justify-center items-center bg-white p-10 w-1/2">
           <Image
             src={illustration}
             alt="image de presentation du bibliotheque virtuel"
             width={200}
           />
-          <h3 className="text-2xl font-bold mt-8 mb-2">Bienvenue !</h3>
-          <ul className="space-y-2 text-base font-light">
+          <h3 className="text-2xl font-bold mt-8 mb-2 text-blue-800">
+            Bienvenue !
+          </h3>
+          <ul className="space-y-2 text-base font-light text-blue-700">
             <li>Accès partout à la bibliothèque numérique.</li>
             <li>Stockage illimité, sans contrainte d’espace.</li>
             <li>Recherche rapide et interface conviviale.</li>
           </ul>
         </div>
-        {/* Formulaire multi-étapes */}
-        <div className="flex-1 p-8 flex flex-col justify-center">
-          <h3 className="text-3xl font-bold text-blue-800 mb-8 text-center border-b pb-4">
+        {/* Formulaire multi-étapes - fond dégradé bleu */}
+        <div className="flex-1 p-8 flex flex-col justify-center bg-gradient-to-br from-blue-700 to-blue-500 text-white">
+          <h3 className="text-3xl font-bold text-white mb-8 text-center border-b border-white/30 pb-4">
             S&apos;enregistrer
           </h3>
           <form className="space-y-6">
             {step === 1 && (
               <>
                 {/* Prénom & Nom */}
-                <div className="relative mb-2">
+                <div className="relative mb-4">
                   <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-blue-500">
                     <FaUser />
                   </span>
@@ -123,17 +125,17 @@ const Register = () => {
                     placeholder="Prénom & Nom : Erick Ilunga"
                     className={`w-full pl-10 pr-4 py-2 border ${
                       errors.userName ? "border-red-400" : "border-blue-200"
-                    } rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white/80`}
+                    } rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white/80 text-blue-900 placeholder:text-blue-400`}
                     onChange={(e) => setUserName(e.target.value)}
                   />
                   {errors.userName && (
-                    <p className="text-red-500 text-xs mt-1">
+                    <p className="text-red-500 text-xs mt-1 pl-2">
                       {errors.userName}
                     </p>
                   )}
                 </div>
                 {/* Pseudo */}
-                <div className="relative mb-2">
+                <div className="relative mb-4">
                   <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-blue-500">
                     <FaUser />
                   </span>
@@ -145,11 +147,11 @@ const Register = () => {
                     placeholder="Pseudo : Ilunga08"
                     className={`w-full pl-10 pr-4 py-2 border ${
                       errors.userSurname ? "border-red-400" : "border-blue-200"
-                    } rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white/80`}
+                    } rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white/80 text-blue-900 placeholder:text-blue-400`}
                     onChange={(e) => setUserSurname(e.target.value)}
                   />
                   {errors.userSurname && (
-                    <p className="text-red-500 text-xs mt-1">
+                    <p className="text-red-500 text-xs mt-1 pl-2">
                       {errors.userSurname}
                     </p>
                   )}
@@ -157,7 +159,7 @@ const Register = () => {
                 <div className="flex justify-end">
                   <button
                     onClick={handleNext}
-                    className="px-6 py-2 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+                    className="px-6 py-2 rounded-full bg-white text-blue-700 font-semibold shadow hover:from-blue-700 hover:to-blue-500 transition"
                   >
                     Suivant
                   </button>
@@ -223,13 +225,13 @@ const Register = () => {
                 <div className="flex justify-between">
                   <button
                     onClick={handlePrev}
-                    className="px-6 py-2 rounded-full bg-gray-200 text-blue-700 font-semibold hover:bg-gray-300 transition"
+                    className="px-6 py-2 rounded-full bg-gradient-to-r from-gray-200 to-blue-100 text-blue-700 font-semibold shadow hover:from-blue-200 hover:to-blue-300 transition"
                   >
                     Précédent
                   </button>
                   <button
                     onClick={handleNext}
-                    className="px-6 py-2 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+                    className="px-6 py-2 rounded-full bg-white text-blue-700 font-semibold shadow hover:from-blue-700 hover:to-blue-500 transition"
                   >
                     Suivant
                   </button>
@@ -285,14 +287,14 @@ const Register = () => {
                 <div className="flex justify-between">
                   <button
                     onClick={handlePrev}
-                    className="px-6 py-2 rounded-full bg-gray-200 text-blue-700 font-semibold hover:bg-gray-300 transition"
+                    className="px-6 py-2 rounded-full bg-gradient-to-r from-gray-200 to-blue-100 text-blue-700 font-semibold shadow hover:from-blue-200 hover:to-blue-300 transition"
                   >
                     Précédent
                   </button>
                   <button
                     type="submit"
                     onClick={handleSubmit}
-                    className="px-6 py-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold flex items-center gap-2 hover:from-purple-600 hover:to-pink-600 transition"
+                    className="px-6 py-2 rounded-full bg-white text-blue-700 font-semibold flex items-center gap-2 shadow hover:from-blue-700 hover:to-blue-500 transition"
                   >
                     <AiOutlineCheck className="text-xl" />
                     Valider
