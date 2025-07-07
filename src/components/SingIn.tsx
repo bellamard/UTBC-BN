@@ -1,127 +1,140 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { AiOutlineCheck, AiFillEyeInvisible, AiFillEye, AiOutlineBorder, AiOutlineCheckSquare } from "react-icons/ai";
+import React, { useState } from "react";
+import Link from "next/link";
+import {
+  AiOutlineCheck,
+  AiFillEyeInvisible,
+  AiFillEye,
+  AiOutlineBorder,
+  AiOutlineCheckSquare,
+} from "react-icons/ai";
 import { FaUser, FaLock } from "react-icons/fa";
 
 const SingIn = () => {
-    const [password, setPassword] = useState('');
-    const [showPassword, setShowPassword] = useState(false);
-    const [userName, setUserName] = useState('');
-    const [saveUser, setSaveUser] = useState(false);
-    const handleTogglePassword = () => {
-        setShowPassword(prevState => !prevState);
-    };
-    const handleToggleSaveUser = () => {
-        setSaveUser(!saveUser);
-    };
-    return (
-        <div className='section justify-center' id='contact'>
-            <div className='justify-center items-center w-3/4'>
-                <div className="ml-4 mr-4 flex flex-col justify-center align-center w-full">
-                    <h3 className='text-[48px] text-blue-800 font-bold border-b border-blue-600 mb-4'>
-                        Se connecter
-                    </h3>
-                    <div className='rounded-[5px] flex flex-col  justify-center items-center w-full'>
-                        <div className='rounded-[5px] bg-white/70 flex flex-row justify-between items-center w-full'>
-                            <div className='flex flex-row p-2'>
-                                
-                                <div className='flex flex-col justify-center p-2'>
-                                    <h3 className='text-[48px] text-blue-800 font-bold'>Avantage</h3>
-                                    <p className='mb-2 text-[16px] text-blue-800 font-light'>
-                                        Vous pouvez accéder aux ressources de la bibliothèque numérique depuis n’importe où, tant que vous avez une connexion Internet. Plus besoin de vous rendre physiquement à la bibliothèque.
-                                    </p>
-                                    <p className='mb-2 text-[16px] text-blue-800 font-light'>
-                                        Contrairement aux bibliothèques traditionnelles, les bibliothèques numériques ne sont pas limitées par l’espace physique. Elles peuvent stocker un grand nombre de documents sans encombrer les étagères.
-                                    </p>
-                                    <p className='mb-2 text-[16px] text-blue-800 font-light'>
-                                        Les interfaces conviviales des bibliothèques numériques permettent des recherches rapides et ciblées. Vous pouvez trouver des informations spécifiques en quelques clics.
-                                    </p>
-                                </div>
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [saveUser, setSaveUser] = useState(false);
+  const handleTogglePassword = () => {
+    setShowPassword((prevState) => !prevState);
+  };
+  const handleToggleSaveUser = () => {
+    setSaveUser(!saveUser);
+  };
 
-                            </div>
-                            <div className='bg-white/75 rounded-[5px] border-l-[2px] border-sky-500   ml-2 p-4 flex flex-col justify-center'>
-                                <form>
-                                    <div className='flex flex-row pb-2'>
-                                        <div className='flex flex-col'>
-                                            <div className='flex flex-row items-center'>
-                                                <FaUser className='m-2' />
-                                                <label htmlFor='userName'>Utilisateur:</label>
-                                            </div>
-                                            <input
-                                                type='text'
-                                                id='userName'
-                                                value={userName}
-                                                placeholder='Ilunga08'
-                                                className='p-2 px-4 rounded rounded-full'
-                                                onChange={(e) => setUserName(e.target.value)} />
-                                        </div>
-                                    </div>
-                                    <div className='flex flex-row pb-2'>
-                                        <div className='flex flex-col'>
-                                            <div className='flex flex-row items-center'>
-                                                <FaLock className='m-2' />
-                                                <label htmlFor='password'>Mot de passe:</label>
-                                            </div>
-
-                                            <div className='flex flex-row'>
-                                                <input
-                                                    type={showPassword ? 'text' : 'password'}
-                                                    value={password}
-                                                    id='password' placeholder='*************'
-                                                    className='p-2 px-4 mr-1 rounded rounded-full'
-                                                    onChange={(e) => setPassword(e.target.value)}
-                                                />
-                                                <button type="button" onClick={handleTogglePassword}>
-                                                    {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
-                                                </button>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {/* sauve fonction users */}
-                                    <div className='flex flex-row pb-2'>
-                                        <div className='flex flex-col'>
-                                            <div className='flex flex-row'>
-
-                                                <button type="button" onClick={handleToggleSaveUser} className='flex flex-row items-center'>
-                                                    {saveUser ? <AiOutlineCheckSquare className='m-2' /> : <AiOutlineBorder className='m-2' />}
-                                                    Se rappeler de moi sur cet appareil
-                                                </button>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <button type='submit' className='w-full p-1 border border-sky-500 rounded-full  text-white flex items-center bg-gradient-to-r from-purple-500 to-pink-500/25 hover:bg-white hover:text-white/50'>
-                                            <div className="p-3 mr-4 rounded-full bg-sky-500">
-                                                <AiOutlineCheck />
-                                            </div>
-                                            <h3 className='text-xl '>
-                                                Se Connecter
-                                            </h3>
-                                        </button>
-                                    </div>
-                                    <div className='my-8'>
-                                        <Link href='/recovery'>
-                                            Mot de passe oublié
-                                        </Link>
-
-                                    </div>
-
-                                </form>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
+  return (
+    <div
+      className="min-h-screen flex items-center justify-center bg-cover bg-center relative"
+      style={{
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1500&q=80')",
+      }}
+    >
+      <div className="absolute inset-0 bg-blue-900/60 backdrop-blur-sm -z-10"></div>
+      <div className="w-full max-w-4xl bg-white/90 rounded-2xl shadow-2xl flex flex-col md:flex-row overflow-hidden animate-fade-in-up transition-transform duration-300 hover:scale-105 hover:shadow-3xl">
+        {/* Colonne Avantages */}
+        <div className="hidden md:flex flex-col justify-center items-start bg-gradient-to-br from-blue-700 to-blue-500 text-white p-10 w-1/2">
+          <h3 className="text-3xl font-bold mb-6">Avantages</h3>
+          <ul className="space-y-4 text-base font-light">
+            <li>Accès partout à la bibliothèque numérique.</li>
+            <li>Stockage illimité, sans contrainte d’espace.</li>
+            <li>Recherche rapide et interface conviviale.</li>
+          </ul>
         </div>
-
-    );
+        {/* Formulaire */}
+        <div className="flex-1 p-8 flex flex-col justify-center">
+          <h3 className="text-2xl font-bold text-blue-800 mb-8 text-center border-b pb-4">
+            Se connecter
+          </h3>
+          <form className="space-y-6">
+            {/* Champ utilisateur */}
+            <div className="relative group">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-blue-500 transition-colors group-focus-within:text-blue-700">
+                <FaUser />
+              </span>
+              <input
+                type="text"
+                id="userName"
+                value={userName}
+                placeholder="Nom d'utilisateur"
+                className="w-full pl-10 pr-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white/80 transition-all duration-200 group-hover:border-blue-400"
+                onChange={(e) => setUserName(e.target.value)}
+              />
+            </div>
+            {/* Champ mot de passe */}
+            <div className="relative group">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-blue-500 transition-colors group-focus-within:text-blue-700">
+                <FaLock />
+              </span>
+              <input
+                type={showPassword ? "text" : "password"}
+                id="password"
+                value={password}
+                placeholder="Mot de passe"
+                className="w-full pl-10 pr-10 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white/80 transition-all duration-200 group-hover:border-blue-400"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <button
+                type="button"
+                onClick={handleTogglePassword}
+                className="absolute inset-y-0 right-0 flex items-center pr-3 text-blue-500 hover:text-blue-700 transition"
+                tabIndex={-1}
+              >
+                {showPassword ? <AiFillEye /> : <AiFillEyeInvisible />}
+              </button>
+            </div>
+            {/* Se rappeler de moi */}
+            <div className="flex items-center">
+              <button
+                type="button"
+                onClick={handleToggleSaveUser}
+                className="flex items-center text-blue-700 text-sm focus:outline-none"
+              >
+                {saveUser ? (
+                  <AiOutlineCheckSquare className="mr-2" />
+                ) : (
+                  <AiOutlineBorder className="mr-2" />
+                )}
+                Se rappeler de moi
+              </button>
+            </div>
+            {/* Bouton connexion */}
+            <button
+              type="submit"
+              className="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-blue-600 to-blue-400 hover:from-blue-700 hover:to-blue-500 text-white rounded-lg font-semibold text-lg shadow transition-all duration-200 hover:scale-105"
+            >
+              <AiOutlineCheck className="text-xl" />
+              Se connecter
+            </button>
+            {/* Lien mot de passe oublié */}
+            <div className="text-center mt-4">
+              <Link
+                href="/recovery"
+                className="text-blue-600 hover:underline text-sm"
+              >
+                Mot de passe oublié ?
+              </Link>
+            </div>
+          </form>
+        </div>
+      </div>
+      {/* Animation CSS */}
+      <style jsx global>{`
+        @keyframes fade-in-up {
+          0% {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in-up {
+          animation: fade-in-up 0.7s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+        }
+      `}</style>
+    </div>
+  );
 };
 
 export default SingIn;

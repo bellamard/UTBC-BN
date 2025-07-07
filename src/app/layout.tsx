@@ -17,6 +17,7 @@ export default function RootLayout({
         <title>
           utbc Bibiliotheque
         </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className='overflow-auto overflow-x-hidden'>
         <div>

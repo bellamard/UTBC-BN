@@ -13,7 +13,7 @@ function card({ memory }) {
 
     return (
         <div className='m-8 w-[200px]  rounded'>
-            <Link href={`/dashboard/book/${memory.matricule}`} className='flex flex-col justify-between'>
+            <Link href={`/dashboard/book/${memory.id}`} className='flex flex-col justify-between'>
                 <div className='w-full flex justify-center border-b border-blue-600'>
                     <Image src={memory.image ? (memory.image) : (logos)} alt={memory.title} width='200' height='212' objectFit="cover" className='rounded' />
 
