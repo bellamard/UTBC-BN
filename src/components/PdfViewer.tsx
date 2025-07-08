@@ -1,46 +1,45 @@
-import { useState } from 'react';
-import { Document, Page } from 'react-pdf';
-import { pdfjs } from 'react-pdf';
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+'use client';
 
-const PdfViewer = ({ pdfUrl }: { pdfUrl: string }) => {
-  const [numPages, setNumPages] = useState<number | null>(null);
-  const [pageNumber, setPageNumber] = useState<number>(1);
+import { useEffect, useRef } from 'react';
+import * as pdfjsLib from 'pdfjs-dist';
+import 'pdfjs-dist/build/pdf.worker.entry';
 
-  const onDocumentLoadSuccess = ({ numPages }: { numPages: number }) => {
-    setNumPages(numPages);
-    setPageNumber(1);
-  };
+interface PDFViewerProps {
+  url: string;
+}
 
-  const goToNextPage = () => {
-    if (pageNumber < (numPages || 0)) {
-      setPageNumber(pageNumber + 1);
-    }
-  };
+export default function PDFViewer({ url }: PDFViewerProps) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const goToPrevPage = () => {
-    if (pageNumber > 1) {
-      setPageNumber(pageNumber - 1);
-    }
-  };
+  useEffect(() => {
+    const loadPdf = async () => {
+      const loadingTask = pdfjsLib.getDocument(url);
+      const pdf = await loadingTask.promise;
+      const page = await pdf.getPage(1);
+
+      const viewport = page.getViewport({ scale: 1.5 });
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+
+      const context = canvas.getContext('2d');
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+
+      const renderContext = {
+        canvasContext: context!,
+        viewport: viewport,
+      };
+
+      await page.render(renderContext).promise;
+    };
+
+    loadPdf();
+  }, [url]);
 
   return (
-    <div>
-      <Document file={pdfUrl} onLoadSuccess={onDocumentLoadSuccess}>
-        <Page pageNumber={pageNumber} />
-      </Document>
-      <div className="flex justify-between mt-2">
-        <button onClick={goToPrevPage} disabled={pageNumber <= 1} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Previous
-        </button>
-        <button onClick={goToNextPage} disabled={pageNumber >= (numPages || 0)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Next
-        </button>
-      </div>
-      <p className="text-center mt-2">Page {pageNumber} of {numPages}</p>
+    <div className="flex justify-center">
+      <canvas ref={canvasRef} className="border shadow-lg rounded" />
     </div>
   );
-};
-
-export default PdfViewer;
+}

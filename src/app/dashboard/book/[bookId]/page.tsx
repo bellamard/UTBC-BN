@@ -150,7 +150,7 @@ function Home({
     id,
     title,
     image,
-    urlBook,
+    matricule,
     Names,
     Faculte,
     option,
@@ -233,7 +233,7 @@ function Home({
           {/* Bouton de lecture */}
           <div>
             <Link
-              href={`/view/${id}`}
+              href={`${matricule}/view/${matricule}`}
               className="inline-block w-full text-center bg-blue-600 text-white font-semibold py-3 rounded-xl hover:bg-blue-700 transition-all duration-200"
             >
               📖 Faire la lecture
