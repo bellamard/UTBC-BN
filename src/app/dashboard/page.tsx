@@ -12,11 +12,11 @@ const Home = () => {
     // const [countBookDepartment, setCountBookDepartment]=useState([]);
     const [loading, setLoading]=useState(true);
     const countBookDepartment = [
-        { counts: 129, name: 'Informatique' },
-        { counts: 429, name: 'Droit' },
-        { counts: 329, name: 'Economie' },
-        { counts: 929, name: 'Communication' },
-        { counts: 929, name: 'Medecine' },
+        { count: 129, name: 'Informatique' },
+        { count: 429, name: 'Droit' },
+        { count: 329, name: 'Economie' },
+        { count: 929, name: 'Communication' },
+        { count: 929, name: 'Medecine' },
     ];
 
     const memories = [
@@ -131,8 +131,7 @@ const Home = () => {
     return (
         <div className='flex flex-col justify-between m-2 p-2 bg-gray-200  w-full flex-col flex-wrap rounded rounded-l '>
             <HeaderDashboard userName='bebe' path='DashBoard' />
-            <CountMemory countBook={1060} countBookDepartment={countBookDepartment} />
-            <Dash countBookDepartment={countBookDepartment} />
+            <CountMemory countBook={1060} countBookDepartment={countBookDepartment} />            
             {
                 memories.map((category, index) => (
                     <Pannel memories={category} key={index} />

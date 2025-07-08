@@ -17,7 +17,7 @@ const navLinks = [
     label: "Mes lectures",
   },
   {
-    href: "#",
+    href: "/Nouveaute",
     icon: <FaBook className="text-2xl" />,
     label: "Nouveautés",
   },
@@ -27,7 +27,7 @@ const navLinks = [
     label: "Domaines",
   },
   {
-    href: "#",
+    href: "/Favories",
     icon: <FaStar className="text-2xl" />,
     label: "Favoris",
   },
