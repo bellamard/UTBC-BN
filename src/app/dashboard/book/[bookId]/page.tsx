@@ -1,164 +1,247 @@
-'use client';
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import axios from 'axios';
-import logos from '@/assets/logos.png';
-import Link from 'next/link';
-import { FaUser, FaBookOpen, FaCalendar, FaFeather, FaUserEdit } from 'react-icons/fa';
+"use client";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import axios from "axios";
+import logos from "@/assets/logos.png";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import {
+  FaUser,
+  FaBookOpen,
+  FaCalendar,
+  FaFeather,
+  FaUserEdit,
+  FaArrowLeft,
+} from "react-icons/fa";
 
 function Home({
   params,
   searchParams,
 }: {
-  params: { bookId: string }
-  searchParams: { [key: string]: string | string[] | undefined }
+  params: { bookId: string };
+  searchParams: { [key: string]: string | string[] | undefined };
 }) {
   const [dataBook, setDataBook] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const memories = [
+    {
+      title: "Nouveaute",
+      memory: [
+        {
+          matricule: "ec08123",
+          title: "developpement du marche public du Numerique en RDC",
+          year: "2019-2020",
+          image: "SCN_0004.jpg",
+        },
+        {
+          matricule: "ec08124",
+          title: "developpement du marche du Boursier en RDC",
+          year: "2019-2020",
+        },
+        {
+          matricule: "ec08124",
+          title: "developpement du marche du Boursier en RDC",
+          year: "2019-2020",
+        },
+        {
+          matricule: "ec08124",
+          title: "developpement du marche du routier en RDC",
+          year: "2019-2020",
+        },
+      ],
+    },
+    {
+      title: "Favories",
+      memory: [
+        {
+          matricule: "ec08123",
+          title: "developpement du marche du Numerique en RDC",
+          year: "2019-2020",
+        },
+        {
+          matricule: "ec08124",
+          title: "developpement du marche du Boursier en RDC",
+          year: "2019-2020",
+        },
+        {
+          matricule: "ec08124",
+          title: "developpement du marche du Boursier en RDC",
+          year: "2019-2020",
+        },
+        {
+          matricule: "ec08124",
+          title: "developpement du marche du routier en RDC",
+          year: "2019-2020",
+        },
+      ],
+    },
+    {
+      title: "Populaire",
+      memory: [
+        {
+          matricule: "ec08123",
+          title: "developpement du marche du Numerique en RDC",
+          year: "2019-2020",
+        },
+        {
+          matricule: "ec08124",
+          title: "developpement du marche du Boursier en RDC",
+          year: "2019-2020",
+        },
+        {
+          matricule: "ec08124",
+          title: "developpement du marche du Boursier en RDC",
+          year: "2019-2020",
+        },
+        {
+          matricule: "ec08124",
+          title: "developpement du marche du routier en RDC",
+          year: "2019-2020",
+        },
+        {
+          matricule: "ec08124",
+          title: "developpement du marche du Boursier en RDC",
+          year: "2019-2020",
+        },
+        {
+          matricule: "ec08124",
+          title: "developpement du marche du routier en RDC",
+          year: "2019-2020",
+        },
+      ],
+    },
+  ];
+  const found = (bookId: String) => {
+    return memories
+      .flatMap((category) => category.memory)
+      .find((item) =>
+        item.matricule.toLowerCase().includes(bookId.toLowerCase())
+      );
+  };
+  const yo: any = found(params.bookId);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`http://localhost:3000/books/${params.bookId}`);
-        setDataBook(response.data);
-      }
-      catch (errorFetch) {
-        setError('Erreur de reception des données');
-        console.log('Erreur de reception des données', errorFetch);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [params.bookId])
-
-  // const handleOpenModal = () => {
-  //   setShowModal(true);
-  // };
-
-  // const handleCloseModal = () => {
-  //   setShowModal(false);
-  // };
+    setDataBook(yo);
+    setLoading(false);
+  }, []);
 
   if (loading) {
     return (
-      <div className='flex justify-center items-center h-screen'>
-        <div className='flex justify-center '>
-          <h2>
-            Loading...
-          </h2>
+      <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center ">
+          <h2>Loading...</h2>
         </div>
       </div>
-    )
+    );
   }
 
   if (error) {
     return (
-      <div className='flex justify-center items-center h-screen'>
-        <div className='flex justify-center '>
-          <h2>
-            Error!!!
-          </h2>
+      <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center ">
+          <h2>Error!!!</h2>
         </div>
       </div>
-    )
+    );
   }
-  console.log(dataBook);
-  const { id,title, Names, Faculte, option, directeur, rapporteur, year, urlBook } = dataBook;
+
+  const {
+    id,
+    title,
+    image,
+    urlBook,
+    Names,
+    Faculte,
+    option,
+    directeur,
+    rapporteur,
+    year,
+  } = dataBook;
+
   return (
-    <div className='flex flex-col p-4'>
-      <div className='flex justify-between items-center'>
-        <FaBookOpen className='mr-2 text-[120px]' />
-        <h2 className='text-4xl font-bold'>{title}</h2>
+    <div className="flex flex-col p-6 max-w-6xl mx-auto bg-white rounded-2xl shadow-lg">
+      <button
+        onClick={() => window.history.back()}
+        className="flex items-center text-blue-600 hover:text-blue-800 mb-4 transition-colors"
+      >
+        <FaArrowLeft className="mr-2" />
+        Retour
+      </button>
+      <div className="flex items-center mb-6 border-b pb-4">
+        <FaBookOpen className="text-blue-600 text-[100px] mr-6" />
+        <h2 className="text-5xl font-extrabold text-gray-800">{title}</h2>
       </div>
-      <div className='flex justify-between mt-8'>
-        <div className='flex justify-center w-[50%]'>
-          <Image src={urlBook ? `http://localhost/api/cover/${urlBook}` : logos} width="480px" height="450px" objectFit="cover" className='rounded' />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Image */}
+        <div className="flex justify-center items-center">
+          <Image
+            src={image ? require("@/assets/" + image) : logos}
+            objectFit="cover"
+            className="w-full h-96 object-contain rounded-xl border"
+            alt={title}
+          />
         </div>
-        <div className='border-l border-blue p-4 rounded'>
-          <div className='flex items-center'>
-            <FaUser className='mr-2 text-3xl' />
-            <h3 className='text-2xl font-bold'>
-              {Names}
-            </h3>
-          </div>
-          <div className='flex my-4 justify-between'>
-            <div className='flex items-center'>
-              <FaFeather className='mr-2 text-3xl' />
-              <h4 className='text-2xl'>
-                {Faculte}
-              </h4>
-            </div>
-            <div className='flex items-center'>
-              <FaFeather className='mr-2 text-3xl' />
-              <h4 className='text-2xl'>
-                {option}
-              </h4>
 
+        {/* Informations */}
+        <div className="flex flex-col justify-between space-y-6 text-gray-700">
+          {/* Étudiant */}
+          <div className="flex items-center space-x-3">
+            <FaUser className="text-blue-600 text-2xl" />
+            <h3 className="text-2xl font-semibold">{Names}</h3>
+          </div>
+
+          {/* Faculté & Option */}
+          <div className="grid grid-cols-2 gap-4">
+            <div className="flex items-center space-x-2">
+              <FaFeather className="text-blue-600 text-xl" />
+              <h4 className="text-lg">{Faculte}</h4>
+            </div>
+            <div className="flex items-center space-x-2">
+              <FaFeather className="text-blue-600 text-xl" />
+              <h4 className="text-lg">{option}</h4>
             </div>
           </div>
 
-          <div>
-
-
+          {/* Directeur et Rapporteur */}
+          <div className="grid grid-cols-2 gap-4">
             <div>
-              <div>
-                <div className='flex align-text-bottom'>
-                  <FaUserEdit className='mr-2 text-3xl' />
-                  <h3>
-                    Directeur
-                  </h3>
-                </div>
-                <h4 className='text-2xl'>
-                  {
-                    directeur
-                  }
-                </h4>
-
+              <div className="flex items-center space-x-2">
+                <FaUserEdit className="text-blue-600 text-xl" />
+                <h4 className="font-medium">Directeur</h4>
               </div>
-              <div>
-                <div className='flex align-text-bottom'>
-                  <FaUserEdit className='mr-2 text-3xl' />
-                  <h3>
-                    Rapporteur
-                  </h3>
-                </div>
-
-                <h4 className='text-2xl'>
-                  {
-                    rapporteur
-                  }
-                </h4>
-
+              <p className="text-lg">{directeur}</p>
+            </div>
+            <div>
+              <div className="flex items-center space-x-2">
+                <FaUserEdit className="text-blue-600 text-xl" />
+                <h4 className="font-medium">Rapporteur</h4>
               </div>
+              <p className="text-lg">{rapporteur}</p>
             </div>
           </div>
-          <div >
-            <div className='flex'>
-              <FaCalendar className='mr-2 text-3xl' />
-              <h3>
-                Année Académique
-              </h3>
-            </div>
-            <h4 className='text-2xl'>
-              {
-                year
-              }
+
+          {/* Année académique */}
+          <div className="flex items-center space-x-3">
+            <FaCalendar className="text-blue-600 text-xl" />
+            <h4 className="text-lg">
+              Année Académique : <span className="font-semibold">{year}</span>
             </h4>
-
           </div>
+
+          {/* Bouton de lecture */}
           <div>
-            <Link href={`/dashboard/book/${id}/view/${id}`} className='border border-blue-600 bg-blue-600 p-2 rounded text-white hover:bg-blue-400 hover:text-yellow-400'>
-              Faire la lecture
+            <Link
+              href={`/view/${id}`}
+              className="inline-block w-full text-center bg-blue-600 text-white font-semibold py-3 rounded-xl hover:bg-blue-700 transition-all duration-200"
+            >
+              📖 Faire la lecture
             </Link>
           </div>
-
         </div>
       </div>
-
-
-    </div >
+    </div>
   );
 }
 

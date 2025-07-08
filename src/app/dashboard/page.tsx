@@ -109,7 +109,8 @@ const Home = () => {
     },
   ];
 
-  const [memoriesSearch, setMemoriesSearch] = useState<MemoryCategory[]>(memories);
+  const [memoriesSearch, setMemoriesSearch] =
+    useState<MemoryCategory[]>(memories);
 
   type MemoryItem = {
     matricule: string;
@@ -130,7 +131,10 @@ const Home = () => {
     matricule?: string;
   };
 
-  const  filterMemories=(memories: MemoryCategory[], filters: MemoryFilters)=> {
+  const filterMemories = (
+    memories: MemoryCategory[],
+    filters: MemoryFilters
+  ) => {
     return memories
       .filter(
         (category: MemoryCategory) =>
@@ -154,7 +158,7 @@ const Home = () => {
         };
       })
       .filter((category: MemoryCategory) => category.memory.length > 0);
-  }
+  };
 
   useEffect(() => {
     const getBook = async () => {
@@ -172,10 +176,10 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-between m-2 p-2 bg-gray-200  w-full flex-col flex-wrap rounded rounded-l ">
-      <HeaderDashboard userName="bebe" path="DashBoard" />
+    <div>
+      
       <CountMemory countBook={1060} countBookDepartment={countBookDepartment} />
-      <div className="flex flex-col justify-between m-2 p-4 flex-wrap rounded-lg border-b border-blue-600 ">
+      <div className="sticky top-0 z-20 bg-white bg-opacity-90 flex flex-col justify-between m-2 p-4 flex-wrap rounded-lg border-b border-blue-600 shadow transition-all duration-300">
         <div className="relative w-full max-w-md mx-auto">
           <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-blue-400 pointer-events-none">
             <FaMagnifyingGlass className="text-xl" />
@@ -185,10 +189,9 @@ const Home = () => {
             placeholder="Rechercher un livre"
             className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
             onChange={(e) => {
-              // Ajoute ici ta logique de recherche
-              
-              console.log(e.target.value);
-              setMemoriesSearch(filterMemories(memories, { title: e.target.value }));
+              setMemoriesSearch(
+                filterMemories(memories, { title: e.target.value })
+              );
             }}
           />
         </div>

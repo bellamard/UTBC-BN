@@ -1,6 +1,7 @@
 import React from 'react';
 import ModalPdfViewer from '@/components/ModalPdfViewer';
 
+
 const book = 'https://dspace.univ-guelma.dz/jspui/bitstream/123456789/10259/1/AMRANI_MOHAMMED1605663921.pdf';
 view.propTypes = {
 
@@ -16,7 +17,7 @@ function view(
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
             <h1 className="text-4xl font-bold mb-8">PDF Streaming and Manipulation</h1>
-            <ModalPdfViewer pdfUrl={pdfUrl} />
+            
         </div>
     );
 }

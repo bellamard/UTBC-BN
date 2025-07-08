@@ -1,33 +1,34 @@
-import React from 'react';
-import Link from 'next/link';
-import PropTypes from 'prop-types';
-import Image from 'next/image';
-import logos from '@/assets/logos.png';
+import React from "react";
+import Link from "next/link";
+import PropTypes from "prop-types";
+import Image from "next/image";
+import logos from "@/assets/logos.png";
 
-import { FaFeather, FaCalendar } from 'react-icons/fa';
+import { FaFeather, FaCalendar } from "react-icons/fa";
 
-card.propTypes = {
-
-};
+card.propTypes = {};
 function card({ memory }) {
+  return (
+    <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+      <Link href={`/dashboard/book/${memory.matricule}`}>
+        <Image
+          src={memory.image ? memory.image : logos}
+          alt={memory.title}
+          className="w-full h-40 object-contain"
+        />
 
-    return (
-        <div className='m-8 w-[200px]  rounded'>
-            <Link href={`/dashboard/book/${memory.id}`} className='flex flex-col justify-between'>
-                <div className='w-full flex justify-center border-b border-blue-600'>
-                    <Image src={memory.image ? (memory.image) : (logos)} alt={memory.title} width='200' height='212' objectFit="cover" className='rounded' />
-
-                </div>
-                <div className='flex p-2 bg-white'>
-                    <FaFeather className='text-5xl mr-2' />
-                    <h3 className='text-[14px]'>{memory.title}</h3>
-                </div>
-
-            </Link>
+        <div className="p-4">
+          <h4 className="text-lg font-bold text-gray-800 mb-1">
+            {memory.title}
+          </h4>
+          <div className="flex flex-row flex-wrap justify-between items-center">
+            <h6 className="text-sm text-gray-600">📅 {memory.year}</h6>
+            <h6 className="text-sm text-gray-500">🆔 {memory.matricule}</h6>
+          </div>
         </div>
-
-
-    );
+      </Link>
+    </div>
+  );
 }
 
 export default card;
