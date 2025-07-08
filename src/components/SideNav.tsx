@@ -12,22 +12,22 @@ import {
 
 const navLinks = [
   {
-    href: "#",
+    href: "/dashboard",
     icon: <FaBookReader className="text-2xl" />,
     label: "Mes lectures",
   },
   {
-    href: "/Nouveaute",
+    href: "/dashboard/Nouveaute",
     icon: <FaBook className="text-2xl" />,
     label: "Nouveautés",
   },
   {
-    href: "#",
+    href: "/dashboard/domaine",
     icon: <FaSchool className="text-2xl" />,
     label: "Domaines",
   },
   {
-    href: "/Favories",
+    href: "/dashboard/Favories",
     icon: <FaStar className="text-2xl" />,
     label: "Favoris",
   },
@@ -39,7 +39,7 @@ const SideNav = () => {
       {/* Logo */}
       <div>
         <div className="flex justify-center mb-8">
-          <Link href="/">
+          <Link href="/dashboard">
             <Image
               src={logos}
               alt="logo site"
