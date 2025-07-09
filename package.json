@@ -9,12 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@auth0/nextjs-auth0": "^3.5.0",
     "axios": "^1.5.1",
     "framer-motion": "^11.0.3",
     "jsonwebtoken": "^9.0.2",
     "next": "14.0.4",
     "next-auth": "^4.24.7",
+    "pdfjs-dist": "^3.4.120",
     "react": "^18",
     "react-countup": "^6.5.0",
     "react-dom": "^18",

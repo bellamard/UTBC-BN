@@ -4,7 +4,12 @@ const nextConfig = {
     images: {
         domains: ['facimprimeur.fr']
     },
-    
+    webpack: (config) => {
+        config.resolve.alias.canvas = false;
+        config.resolve.alias.encoding = false;
+        return config;
+    },
+
 }
 
 module.exports = nextConfig

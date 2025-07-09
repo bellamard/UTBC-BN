@@ -184,7 +184,7 @@ const Home = ({
 
   return (
     <div>
-      <CountMemory countBook={1060} countBookDepartment={countBookDepartment} />
+      {/* <CountMemory countBook={1060} countBookDepartment={countBookDepartment} /> */}
       <div className="sticky top-0 z-20 bg-white bg-opacity-90 flex flex-col justify-between m-2 p-4 flex-wrap rounded-lg border-b border-blue-600 shadow transition-all duration-300">
         <div className="relative w-full max-w-md mx-auto">
           <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-blue-400 pointer-events-none">
