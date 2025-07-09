@@ -104,7 +104,7 @@ export default function PDFViewer({ url }: PDFViewerProps) {
       className="relative flex flex-col items-center justify-center bg-gray-200 p-4 w-full h-full"
     >
       {/* Toolbar flottante */}
-      <div className="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur-md border rounded-xl shadow-md flex items-center space-x-2 px-4 py-2">
+      <div className="sticky top-4 right-4 z-10 bg-white/90 backdrop-blur-md border rounded-xl shadow-md flex items-center space-x-2 px-4 py-2">
         <button
           onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
           disabled={currentPage === 1}
