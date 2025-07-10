@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+
 headerDashboard.propTypes = {
 
 };
@@ -22,6 +23,10 @@ function headerDashboard(props) {
                     <p className="text-blue-500 mt-2 text-sm animate-fade-in-up delay-200">
                         Heureux de vous revoir sur votre tableau de bord !
                     </p>
+                    <button className="mt-2 text-blue-500 hover:text-blue-700 transition-colors duration-300">
+                        
+                    </button>
+                        
                 </div>
             </div>
             <style>

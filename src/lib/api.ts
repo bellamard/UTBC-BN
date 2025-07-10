@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
-import { User, AuthResponse, Verification } from '@/lib/types';
+import { User, AuthResponse, Verification, VerificationStatus } from '@/lib/types';
 
 const apiClient: AxiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,

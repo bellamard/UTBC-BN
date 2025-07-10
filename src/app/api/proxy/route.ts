@@ -1,4 +1,4 @@
-// app/api/proxy/route.ts
+
 
 export async function GET(req: Request) {
   try {

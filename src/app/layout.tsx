@@ -1,6 +1,6 @@
 
 import './styles/globals.css';
-
+import { AuthProvider } from '@/contexts/authContext'
 
 
 
@@ -20,9 +20,9 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className='overflow-auto overflow-x-hidden'>
-        <div>
+        <AuthProvider>
           {children}
-        </div>
+        </AuthProvider>
       </body>
     </html>
   )

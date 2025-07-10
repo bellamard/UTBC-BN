@@ -8,8 +8,12 @@ import {
   AiOutlineCheckSquare,
 } from "react-icons/ai";
 import { FaUser, FaLock } from "react-icons/fa";
+import { useAuth } from "@/contexts/authContext";
+import { useRouter } from "next/navigation";
 
 const SingIn = () => {
+  const { login } = useAuth();
+  const router = useRouter();
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [userName, setUserName] = useState("");
@@ -19,6 +23,13 @@ const SingIn = () => {
   };
   const handleToggleSaveUser = () => {
     setSaveUser(!saveUser);
+  };
+  const handleSubmit = async () => {
+    try {
+      await login(userName, password);
+    } catch (error) {
+      alert("Login failed. Please check your credentials.");
+    }
   };
 
   return (
@@ -45,7 +56,7 @@ const SingIn = () => {
           <h3 className="text-2xl font-bold text-blue-800 mb-8 text-center border-b pb-4">
             Se connecter
           </h3>
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             {/* Champ utilisateur */}
             <div className="relative group">
               <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-blue-500 transition-colors group-focus-within:text-blue-700">
