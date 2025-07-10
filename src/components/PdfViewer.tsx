@@ -25,22 +25,11 @@ export default function PDFViewer({ url }: PDFViewerProps) {
   const [textLayerHtml, setTextLayerHtml] = useState<JSX.Element | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Charger le PDF
-  // useEffect(() => {
-  //   const loadPdf = async () => {
-  //     const loadingTask = getDocument(url);
-  //     const pdfDoc = await loadingTask.promise;
-  //     setPdf(pdfDoc);
-  //     setTotalPages(pdfDoc.numPages);
-  //     setCurrentPage(1);
-  //   };
-
-  //   loadPdf();
-  // }, [url]);
+  
 
   useEffect(() => {
     const loadPdf = async () => {
-      setIsLoading(true); // Début du chargement
+      setIsLoading(true); 
       try {
         const loadingTask = getDocument(url);
         const pdfDoc = await loadingTask.promise;
@@ -50,7 +39,7 @@ export default function PDFViewer({ url }: PDFViewerProps) {
       } catch (err) {
         console.error("Erreur de chargement du PDF", err);
       } finally {
-        setIsLoading(false); // Fin du chargement
+        setIsLoading(false); 
       }
     };
 
