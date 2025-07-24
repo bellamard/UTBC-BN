@@ -13,10 +13,9 @@ import { useRouter } from "next/navigation";
 
 const SingIn = () => {
   const { login } = useAuth();
-  const router = useRouter();
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("Samba@2025");
   const [showPassword, setShowPassword] = useState(false);
-  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("belamard@gmail.com");
   const [saveUser, setSaveUser] = useState(false);
   const handleTogglePassword = () => {
     setShowPassword((prevState) => !prevState);
@@ -26,9 +25,9 @@ const SingIn = () => {
   };
   const handleSubmit = async () => {
     try {
-      await login(userName, password);
+      await login(email, password);
     } catch (error) {
-      alert("Login failed. Please check your credentials.");
+      console.error("Login failed. Please check your credentials.", error);
     }
   };
 
@@ -65,10 +64,10 @@ const SingIn = () => {
               <input
                 type="text"
                 id="userName"
-                value={userName}
+                value={email}
                 placeholder="Nom d'utilisateur"
                 className="w-full pl-10 pr-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white/80 transition-all duration-200 group-hover:border-blue-400"
-                onChange={(e) => setUserName(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             {/* Champ mot de passe */}

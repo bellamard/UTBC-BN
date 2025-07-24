@@ -163,7 +163,7 @@ const Home = () => {
   useEffect(() => {
     const getBook = async () => {
       try {
-        const books = await axios.get("http://localhost:3000/representation");
+        const books = await axios.get("http://localhost:3000/api/ouvrages");
         setMemories(books.data);
       } catch (errorFetch) {
         console.log(errorFetch);
