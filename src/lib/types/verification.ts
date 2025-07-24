@@ -9,7 +9,7 @@ export interface Verification {
   created_at: string;
   updated_at: string;
   user?: {
-    name: string;
+    nom: string;
     email: string;
   };
 }

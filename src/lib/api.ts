@@ -21,13 +21,13 @@ apiClient.interceptors.request.use((config) => {
 
 export const authAPI = {
   login: (email: string, password: string): Promise<AxiosResponse<AuthResponse>> => 
-    apiClient.post('/login', { email, password }),
+    apiClient.post('/auth/login', { email, password }),
   
   logout: (): Promise<AxiosResponse<void>> => 
     apiClient.post('/logout'),
   
   getUser: (): Promise<AxiosResponse<User>> => 
-    apiClient.get('/user'),
+    apiClient.get('/auth/me'),
 };
 
 export const verificationAPI = {

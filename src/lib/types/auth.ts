@@ -1,8 +1,9 @@
 export interface User {
   id: number;
-  name: string;
+  nom: string;
+  prenom: string;
   email: string;
-  role: 'admin' | 'moderator' | 'user';
+  role: 'administrateur' | 'etudiant' | 'chercher';
   email_verified_at: string | null;
 }
 
