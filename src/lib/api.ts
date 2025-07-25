@@ -51,14 +51,52 @@ export const bookAPI = {
 
   deleteBook: (id: string): Promise<AxiosResponse<void>> =>
     apiClient.delete(`/ouvrages/${id}`),
+
   favoriteBook: (id: string): Promise<AxiosResponse<any>> =>
     apiClient.post(`/ouvrages/${id}/favorite`),
+
   unfavoriteBook: (id: string): Promise<AxiosResponse<any>> =>
     apiClient.delete(`/ouvrages/${id}/unfavorite`),
+
   getFavorites: (): Promise<AxiosResponse<any[]>> =>
     apiClient.get("/ouvrages/favorites"),
+
   getFavoriteById: (id: string): Promise<AxiosResponse<any>> =>
     apiClient.get(`/ouvrages/favorites/${id}`),
+
+  getBookAnnotations: (id: string): Promise<AxiosResponse<any[]>> =>
+    apiClient.get(`/ouvrages/${id}/annotations`),
+
+  createAnnotation: (
+    id: string,
+    content: string
+  ): Promise<AxiosResponse<any>> =>
+    apiClient.post(`/ouvrages/${id}/annotations`, { content }),
+
+  updateAnnotation: (
+    id: string,
+    annotationId: string,
+    content: string
+  ): Promise<AxiosResponse<any>> =>
+    apiClient.put(`/ouvrages/${id}/annotations/${annotationId}`, {
+      content,
+    }),
+
+  deleteAnnotation: (
+    id: string,
+    annotationId: string
+  ): Promise<AxiosResponse<void>> =>
+    apiClient.delete(`/ouvrages/${id}/annotations/${annotationId}`),
+    
+  createSession: (id: string, bookId: string): Promise<AxiosResponse<any>> =>
+    apiClient.post(`/ouvrages/${bookId}/sessions`, { id }),
+
+  updateSession: (
+    id: string,
+    sessionId: string,
+    data: any
+  ): Promise<AxiosResponse<any>> =>
+    apiClient.put(`/ouvrages/${id}/sessions/${sessionId}`, data),
 };
 
 export const verificationAPI = {
