@@ -16,9 +16,9 @@ export default function AuthLayout({
 
   useEffect(() => {
     setPageTitle(document.title);
-    if (!isLoading && !user) {
-      router.push("/login");
-    }
+    // if (!isLoading && !user) {
+    //   router.push("/login");
+    // }
   }, [user, isLoading, router]);
 
   if (isLoading || !user) {

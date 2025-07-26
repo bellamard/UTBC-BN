@@ -52,18 +52,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, [loadUser]);
 
   const login = async (email: string, password: string) => {
-    console.log("Logging in with:", email, password);
     try {
       const { data } = await authAPI.login(email, password);
 
       if (typeof window !== "undefined") {
-        localStorage.setItem("access_token", data.access_token);
+        localStorage.setItem("access_token", data.token);
       }
 
+      console.log("User data:", data.user);
       setUser(data.user);
-      router.push("/dashboard");
+      alert("Login successful !" + data.user.nom);
+      router.push("dashboard");
     } catch (error) {
       console.error("Login failed:", error);
+
       throw error;
     }
   };

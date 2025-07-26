@@ -30,7 +30,10 @@ export const authAPI = {
     email: string,
     password: string
   ): Promise<AxiosResponse<AuthResponse>> =>
-    apiClient.post("/auth/login", { email, password }),
+    apiClient.post("/auth/login", {
+      email,
+      password,
+    }),
 
   logout: (): Promise<AxiosResponse<void>> => apiClient.post("/logout"),
 
@@ -87,7 +90,7 @@ export const bookAPI = {
     annotationId: string
   ): Promise<AxiosResponse<void>> =>
     apiClient.delete(`/ouvrages/${id}/annotations/${annotationId}`),
-    
+
   createSession: (id: string, bookId: string): Promise<AxiosResponse<any>> =>
     apiClient.post(`/ouvrages/${bookId}/sessions`, { id }),
 
