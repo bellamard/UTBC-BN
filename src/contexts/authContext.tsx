@@ -34,7 +34,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       if (token) {
         const { data } = await authAPI.getUser();
-        setUser(data);
+
+        setUser(data.user);
       }
     } catch (error) {
       console.error("Failed to load user", error);
@@ -51,6 +52,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     loadUser();
   }, [loadUser]);
 
+  useEffect(() => {
+    if (user && !isLoading) {
+      router.push("/dashboard");
+    }
+  }, [user, isLoading, router]);
+
   const login = async (email: string, password: string) => {
     try {
       const { data } = await authAPI.login(email, password);
@@ -58,14 +65,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       if (typeof window !== "undefined") {
         localStorage.setItem("access_token", data.token);
       }
-
-      console.log("User data:", data.user);
       setUser(data.user);
-      alert("Login successful !" + data.user.nom);
-      router.push("dashboard");
     } catch (error) {
       console.error("Login failed:", error);
-
+      alert(error || "Login failed");
       throw error;
     }
   };

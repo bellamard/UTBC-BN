@@ -12,11 +12,12 @@ import { useAuth } from "@/contexts/authContext";
 import { useRouter } from "next/navigation";
 
 const SingIn = () => {
-  const { login } = useAuth();
+  const { login, isLoading } = useAuth();
   const [password, setPassword] = useState("Samba@2025");
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("belamard@gmail.com");
   const [saveUser, setSaveUser] = useState(false);
+  const [isLoadingHandler, setIsLoadingHandler] = useState(true);
   const handleTogglePassword = () => {
     setShowPassword((prevState) => !prevState);
   };
@@ -26,10 +27,19 @@ const SingIn = () => {
   const handleSubmit = async () => {
     try {
       await login(email, password);
+      setIsLoadingHandler(isLoading);
     } catch (error) {
       console.error("Login failed. Please check your credentials.", error);
     }
   };
+
+  if (!isLoadingHandler) {
+    return (
+      <div className="absolute inset-0 flex items-center justify-center z-10 bg-white/70">
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-blue-500 border-t-transparent"></div>
+      </div>
+    );
+  }
 
   return (
     <div

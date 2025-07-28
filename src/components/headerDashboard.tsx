@@ -5,6 +5,7 @@ import { FaPowerOff } from "react-icons/fa6";
 headerDashboard.propTypes = {};
 
 function headerDashboard(props) {
+  
   return (
     <header className=" shadow-md mb-6">
       <div className="flex justify-between items-end px-8 py-6 border-b-2 border-blue-500">
@@ -17,7 +18,7 @@ function headerDashboard(props) {
           <div className="flex flex-row">
             <h1 className="font-extrabold text-5xl md:text-4xl text-blue-900 animate-fade-in-up drop-shadow-lg transition-all duration-700">
               Bonjour
-              <span className="text-blue-600">{props?.name}</span>
+              <span className="text-blue-600"> {props?.userName}</span>
             </h1>
             <button
               className="pl-2 mt-2 text-blue-500 hover:text-blue-700 transition-colors duration-300"
